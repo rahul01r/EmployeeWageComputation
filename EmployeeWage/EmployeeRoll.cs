@@ -8,16 +8,18 @@ namespace EmployeeWage
 {
     public class EmployeeRoll
     {
-        public void Attendance()
-        {
+        const int Is_FULL_TIME = 0, Wage_PER_HR = 20, FULL_TIME_HR = 8;
 
+        public void CalculateEmpWage()
+        {
             Random random = new Random();
             int empCheck = random.Next(0, 2);
-            if (empCheck == 0)
+            if (empCheck == Is_FULL_TIME)
+            {
+                int totalEmpWage = Wage_PER_HR * FULL_TIME_HR;
+                Console.WriteLine(totalEmpWage);
 
-                Console.WriteLine("Employee is Present");
-            else
-                Console.WriteLine("Employee is Absent");
+            }
         }
     }
 }
