@@ -9,8 +9,8 @@ namespace EmployeeWage
     public class EmployeeRoll
     {
         const int Is_FULL_TIME = 0, IS_PART_TIME = 1, Wage_PER_HR = 20, FULL_TIME_HR = 8, PART_TIME = 4;
-        int totalEmpWage;
-        public void PartAndFullTime()
+        int totalEmpWage = 0, empHrs = 0;
+        public void SwitchCase()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 2);
@@ -23,16 +23,17 @@ namespace EmployeeWage
         {
             Random random = new Random();
             int empCheck = random.Next(0, 2);
-            if (empCheck == Is_FULL_TIME)
+            switch (empCheck)
             {
-                int totalEmpWage = Wage_PER_HR * FULL_TIME_HR;
-                Console.WriteLine(totalEmpWage);
+                case  Is_FULL_TIME:
+                    empHrs = FULL_TIME_HR;
+                break;
+                case IS_PART_TIME:
+                    empHrs = PART_TIME;
+                break;
             }
-            if (empCheck == IS_PART_TIME)
-            {
-                totalEmpWage = Wage_PER_HR * PART_TIME;
-                Console.WriteLine(totalEmpWage);
-            }
+            totalEmpWage = Wage_PER_HR * empHrs;
+            Console.WriteLine(totalEmpWage);
         }
     }
 }
