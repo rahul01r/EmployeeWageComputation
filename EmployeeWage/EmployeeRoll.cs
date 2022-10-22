@@ -10,7 +10,7 @@ namespace EmployeeWage
     {
         const int Is_FULL_TIME = 0, IS_PART_TIME = 1, Wage_PER_HR = 20, FULL_TIME_HR = 8, PART_TIME = 4, WORKING_DAYS = 20;
         int totalEmpWage = 0, empHrs = 0;
-        public void MonthlyWages()
+        public void WorkingHours()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 2);
@@ -22,9 +22,9 @@ namespace EmployeeWage
         public void CalculateEmpWge()
         {
             Random random = new Random();
-            for (int i = 0; i < WORKING_DAYS; i++)
+            for (int i = 0; i < WORKING_DAYS && empHrs < 100; i++)
             {
-                int empCheck = random.Next(0, 3);
+                int empCheck = random.Next(0, 2);
                 switch (empCheck)
                 {
                     case Is_FULL_TIME:
@@ -35,7 +35,7 @@ namespace EmployeeWage
                         break;
                 }
             }
-            totalEmpWage = Wage_PER_HR * empHrs * WORKING_DAYS;
+            totalEmpWage = Wage_PER_HR * empHrs;
             Console.WriteLine(totalEmpWage);
         }
     }
