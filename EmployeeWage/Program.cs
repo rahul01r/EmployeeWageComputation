@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-           EmployeeRoll employeeRoll = new EmployeeRoll();
-            employeeRoll.CalculateEmpWage();
+            EmployeeRoll.calculateEmpWage("DMart", 30, 20, 100);
+            EmployeeRoll.calculateEmpWage("Reliance", 20, 10, 200);
         }
     }
 }
