@@ -6,14 +6,11 @@
         {
             Console.WriteLine("Welcome to Employeewage program.");
 
-            EmpWageBuilder dMart = new EmpWageBuilder("Dmart", 20, 2, 10);
-            EmpWageBuilder reliance = new EmpWageBuilder("Reliance", 10, 4, 20);
+            EmpWageBuilder empWageBuilder = new EmpWageBuilder();
 
-            dMart.ComputeEmpWage();
-            Console.WriteLine(dMart.ToString());
-
-            reliance.ComputeEmpWage();
-            Console.WriteLine(reliance.ToString());
+            empWageBuilder.addCompanyEmpWage("Dmart", 20, 2, 10);
+            empWageBuilder.addCompanyEmpWage("Reliance", 10, 4, 20);
+            empWageBuilder.computeEmpWage();
         }
     }
 }
