@@ -11,6 +11,7 @@ namespace EmployeeWage
         public void addCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingdays, int maxHoursPerMonth);
         public void computeEmpWage();
 
+        public int getTotalWage(string company);
     }
     public class CompanyEmpWage
     {
@@ -35,7 +36,7 @@ namespace EmployeeWage
 
         public string toString()
         {
-            return "Total Emp Wage for company: " + this.company + " is: " + this.totalEmpWage;
+            return "Total Emp Wage for company: " + this.company + "is: " + this.totalEmpWage;
         }
     }
 }

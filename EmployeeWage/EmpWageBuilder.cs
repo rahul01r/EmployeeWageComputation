@@ -11,18 +11,20 @@ namespace EmployeeWage
         public const int IS_PART_TIME = 1;
         public const int IS_FUL_TIME = 2;
 
-        private int numOfCompany = 0;
         private LinkedList<CompanyEmpWage> companyEmpWageList;
+        private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
 
         public EmpWageBuilder()
         {
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
+            this.companyToEmpWageMap = new Dictionary<string, CompanyEmpWage>();
         }
 
         public void addCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
             this.companyEmpWageList.AddLast(companyEmpWage);
+            this.companyToEmpWageMap.Add(company, companyEmpWage);
         }
 
         public void computeEmpWage()
@@ -59,6 +61,11 @@ namespace EmployeeWage
 
             }
             return totalHr * companyEmpWage.empRatePerHour;
+        }
+
+        public int getTotalWage(string company)
+        {
+            return this.companyToEmpWageMap[company].totalEmpWage;
         }
     }
 }
